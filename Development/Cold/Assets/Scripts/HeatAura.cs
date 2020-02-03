@@ -5,16 +5,16 @@ namespace Cold
   public class HeatAura : MonoBehaviour{
     void OnTriggerStay2D(Collider2D other)
     {
-      var hero = other.transform.GetComponent<HeroState>();
-      if(hero){
-        hero.IsWarm = true;
+      var pawn = other.transform.GetComponent<PawnState>();
+      if(pawn){
+        pawn.IsWarm = true;
       }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-      var hero = other.transform.GetComponent<HeroState>();
-      if(hero){
-        hero.IsWarm = false;
+      var pawn = other.transform.GetComponent<PawnState>();
+      if(pawn){
+        pawn.IsWarm = false;
       }
     }
   }

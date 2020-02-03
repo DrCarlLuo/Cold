@@ -18,16 +18,16 @@ namespace Cold
     public float dbgHealth;
     public float dbgStrength;
     void Start(){
-      hero = Hero.GetComponent<HeroState>();
+      hero = GameCore.I.hero;
       imgHealth = Health.GetComponent<Image>();
       imgStrength = Strength.GetComponent<Image>();
     }
     void Update()
     {
-      dbgHealth = hero.health;
-      dbgStrength = hero.stren;
-      imgHealth.fillAmount = hero.health/Const.MaxHealth;
-      imgStrength.fillAmount = hero.stren/Const.MaxHealth;
+      dbgHealth = hero.Health;
+      dbgStrength = hero.Stren;
+      imgHealth.fillAmount = hero.Health/Const.MaxHealth;
+      imgStrength.fillAmount = hero.Stren/Const.MaxHealth;
     }
 
   }
