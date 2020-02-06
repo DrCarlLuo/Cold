@@ -14,9 +14,10 @@ namespace Cold
       if(I is null){
         I = this;
       }
+      hero = heroTrans.GetComponent<HeroState>();
     }
     void Start(){
-      hero = heroTrans.GetComponent<HeroState>();
+      
     }
   }
 }
