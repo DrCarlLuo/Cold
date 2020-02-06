@@ -19,7 +19,7 @@ namespace Cold
     public void PickAndDrop(){
       if(transform.childCount==0){
         Collider2D[] ret = Physics2D.OverlapCircleAll(
-          transform.position, 0.15f, LayerMask.GetMask("Pawn")
+          transform.position, 0.15f, LayerMask.GetMask("Item")
         );
         foreach(var col in ret){
           var portable = col.transform.GetComponent<IPortable>();

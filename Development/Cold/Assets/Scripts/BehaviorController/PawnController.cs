@@ -18,11 +18,13 @@ namespace Cold
       }
     }
     public void TargetAt(Vector3 target){
-      float angle = Vector3.Angle(Vector3.right, target-transform.position);
+      Vector3 dirVect = target-transform.position;
+      dirVect.z = 0;
+      float angle = Vector3.Angle(Vector3.right, dirVect);
       if(target.y < transform.position.y){
         angle = -angle;
       }
-      transform.localRotation = Quaternion.Euler(0,0,angle);
+      transform.rotation = Quaternion.Euler(0,0,angle);
     }
     void Update(){
       var pos = transform.position;

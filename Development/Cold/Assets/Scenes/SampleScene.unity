@@ -1103,8 +1103,7 @@ MonoBehaviour:
   IsDead: 0
   IsWarm: 0
   Team: 0
-  aura: {fileID: 775765982}
-  HealthLoss: 5
+  HealthLoss: 0
 --- !u!1 &1755155096
 GameObject:
   m_ObjectHideFlags: 0
