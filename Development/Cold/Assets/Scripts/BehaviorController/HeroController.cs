@@ -3,16 +3,17 @@
 namespace Cold
 {
   using TeamMask = Const.TeamMask;
+  [RequireComponent(typeof(PawnController))]
   public class HeroController : MonoBehaviour
   {
     PawnController pawn;
     HeroState hero;
-    Claw claw;
+    ClawController claw;
     void Start()
     {
       pawn = transform.GetComponent<PawnController>();
       hero = transform.GetComponent<HeroState>();
-      claw = transform.GetComponentInChildren<Claw>();
+      claw = transform.GetComponentInChildren<ClawController>();
     }
     void Update()
     {
@@ -20,7 +21,7 @@ namespace Cold
         return;
       }
       if(Input.GetMouseButtonDown(0)){
-        // claw.Attack(TeamMask.Enemy, hero.AttackDamage);
+        claw.PickAndDrop();
       }
       Vector3 mov = new Vector3(
         Input.GetAxis(Const.Horizontal), 

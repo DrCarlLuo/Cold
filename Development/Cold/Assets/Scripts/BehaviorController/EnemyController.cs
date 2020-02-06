@@ -5,18 +5,19 @@ using UnityEngine;
 namespace Cold
 {
   using TeamMask = Const.TeamMask;
+  [RequireComponent(typeof(PawnController))]
   public class EnemyController : MonoBehaviour
   {
     PawnController pawn;
     EnemyState me;
-    Claw claw;
+    ClawController claw;
     HeroState hatred;
     float atkTimer;
     void Start()
     {
       pawn = transform.GetComponent<PawnController>();
       me = transform.GetComponent<EnemyState>();
-      claw = transform.GetComponentInChildren<Claw>();
+      claw = transform.GetComponentInChildren<ClawController>();
       hatred = GameCore.I.hero;
       atkTimer = 0f;
     }

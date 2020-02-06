@@ -8,9 +8,8 @@ namespace Cold
   public class HealthBar : MonoBehaviour
   {
     #region inspector
-    [SerializeField] Transform Hero;
-    [SerializeField] Transform Health;
-    [SerializeField] Transform Strength;
+    [SerializeField] Transform Health = null;
+    [SerializeField] Transform Strength = null;
     #endregion
     HeroState hero;
     Image imgHealth;

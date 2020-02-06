@@ -6,13 +6,13 @@ namespace Cold
 {
   public class TargetFollow : MonoBehaviour
   {
-    [SerializeField]
     Transform Hero = null;
     [Range(0.5f, 5f)]
     public float smooth;
     const float cameraDist = -10f;
 
     void Start(){
+      Hero = GameCore.I.hero.transform;
       transform.position = TargetPosition();
     }
     void Update()

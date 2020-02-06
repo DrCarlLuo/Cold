@@ -5,6 +5,7 @@ namespace Cold
     public const string Horizontal = "Horizontal";
     public const string Vertical = "Vertical";
     public const string Fire = "Fire1";
+    public const string Portable = "Portable";
     public const float MaxHealth = 100f;
     [Flags]
     public enum TeamMask
