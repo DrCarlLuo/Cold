@@ -17,7 +17,7 @@ namespace Cold
     }
     void Update()
     {
-      if(!pawn.enabled){
+      if(hero.IsDead){
         return;
       }
       if(Input.GetMouseButtonDown(0)){
