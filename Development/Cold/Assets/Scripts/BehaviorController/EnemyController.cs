@@ -11,14 +11,13 @@ namespace Cold
     PawnController pawn;
     EnemyState me;
     ClawController claw;
-    HeroState hatred;
+    HeroState hatred => GameCore.I.hero;
     float atkTimer;
     void Start()
     {
       pawn = transform.GetComponent<PawnController>();
       me = transform.GetComponent<EnemyState>();
       claw = transform.GetComponentInChildren<ClawController>();
-      hatred = GameCore.I.hero;
       atkTimer = 0f;
     }
     void Update(){

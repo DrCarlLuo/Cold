@@ -11,18 +11,20 @@ namespace Cold
     [SerializeField] Transform Health = null;
     [SerializeField] Transform Strength = null;
     #endregion
-    HeroState hero;
+    HeroState hero => GameCore.I.hero;
     Image imgHealth;
     Image imgStrength;
     public float dbgHealth;
     public float dbgStrength;
     void Start(){
-      hero = GameCore.I.hero;
       imgHealth = Health.GetComponent<Image>();
       imgStrength = Strength.GetComponent<Image>();
     }
     void Update()
     {
+      if(hero is null){
+        return;
+      }
       dbgHealth = hero.Health;
       dbgStrength = hero.Stren;
       imgHealth.fillAmount = hero.Health/Const.MaxHealth;

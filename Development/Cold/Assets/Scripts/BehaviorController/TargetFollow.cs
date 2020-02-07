@@ -6,17 +6,19 @@ namespace Cold
 {
   public class TargetFollow : MonoBehaviour
   {
-    Transform Hero = null;
+    HeroState hero => GameCore.I.hero;
     [Range(0.5f, 5f)]
     public float smooth;
     const float cameraDist = -10f;
 
     void Start(){
-      Hero = GameCore.I.hero.transform;
       transform.position = TargetPosition();
     }
     void Update()
     {
+      if(hero is null){
+        return;
+      }
       transform.position = Vector3.Lerp(
         transform.position,
         TargetPosition(),
@@ -24,7 +26,7 @@ namespace Cold
       );
     }
     Vector3 TargetPosition(){
-      var tarPos = Hero.position;
+      var tarPos = hero.transform.position;
       tarPos.z = cameraDist;
       return tarPos;
     }

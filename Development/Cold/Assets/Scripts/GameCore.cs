@@ -62,6 +62,9 @@ namespace Cold
       if(pawn is EnemyState){
         var item = enemyList.Find(it=>it==pawn);
         enemyList.Remove(item);
+      } else
+      if(pawn is HeroState){
+        hero = null;
       }
       GameObject.Destroy(pawn.gameObject);
     }
