@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1846886869614812900}
   - component: {fileID: 1846886869614812901}
   - component: {fileID: 1846886869614812902}
+  - component: {fileID: 7596884914187448659}
   - component: {fileID: 1846886869614812903}
   m_Layer: 9
-  m_Name: Wood
+  m_Name: pfWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +94,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30699e9cf6705984fbf4df7ed689f6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7596884914187448659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846886869614812891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483ba22cf74eed440b275fa79ae037ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipPick: {fileID: 8300000, guid: 8ef90d365d6beaf49b1c94845dfdbd2a, type: 3}
+  clipDrop: {fileID: 8300000, guid: 75d4b4979d61c4e4eb3ed6c7b2926451, type: 3}
 --- !u!58 &1846886869614812903
 CircleCollider2D:
   m_ObjectHideFlags: 0

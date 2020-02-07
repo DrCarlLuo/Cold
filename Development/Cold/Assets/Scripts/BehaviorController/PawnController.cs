@@ -3,7 +3,6 @@ using System.Collections;
 namespace Cold
 {
   [RequireComponent(typeof(Rigidbody2D))]
-  [RequireComponent(typeof(PawnState))]
   public class PawnController : MonoBehaviour{
     [Range(0f, 10f)]
     public float speed;

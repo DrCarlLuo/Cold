@@ -25,7 +25,7 @@ namespace Cold
         I = this;
       }
       hero = pfHero.GetComponent<HeroState>();
-      hero.DeadEvent += DestoryPawn;
+      hero.EventDead += DestoryPawn;
     }
     void Start(){
       for(int i=0; i<initWoodCount; i++){
@@ -48,7 +48,7 @@ namespace Cold
             var enemyObj = Instantiate(pfEnemy, pos, Quaternion.identity);
             enemyObj.SetParent(sceneRoot);
             var enemy = enemyObj.GetComponent<EnemyState>();
-            enemy.DeadEvent += DestoryPawn;
+            enemy.EventDead += DestoryPawn;
             enemyList.Add(enemy);
           }
         }
