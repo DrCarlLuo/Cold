@@ -29,21 +29,18 @@ namespace Cold
       || hatred.IsDead){
         return;
       }
-      Vector3 vec = hatred.transform.position-transform.position;
-      var pawnctls = claw.GetAttackPawnCtl(TeamMask.Hero);
-      if(pawnctls.Count>0){ // has targets in attack range
-        if(atkTimer<=0f){
-          atkTimer = me.AttackCoolDown;
-          claw.Attack(pawnctls, me.AttackDamage);
-        }
-      }
-      else{
-        pawn.MoveBy(vec.normalized);
-      }
       if(atkTimer>0f){
         atkTimer -= Time.deltaTime;
       }
-      pawn.TargetAt(hatred.transform.position);
+      Vector3 vec = hatred.transform.position-transform.position;
+      if(vec.sqrMagnitude < me.SeachRadius*me.SeachRadius){ // search target in circle
+        pawn.MoveBy(vec.normalized);
+        pawn.TargetAt(hatred.transform.position);
+        if(atkTimer<=0f){ // has targets in attack range
+          atkTimer = me.AttackCoolDown;
+          claw.Attack(TeamMask.Hero, me.AttackDamage);
+        }
+      }
     }
   }
 }

@@ -7,6 +7,7 @@ namespace Cold
   public class EnemyState : PawnState
   {
     public float HeatDamage = 10f;
+    public float SeachRadius = 10f;
     void Start()
     {
       Team = Const.TeamMask.Enemy;
@@ -14,9 +15,6 @@ namespace Cold
     void Update(){
       if(IsWarm){
         Health -= HeatDamage*Time.deltaTime;
-      }
-      if(IsDead){
-        Destroy(this.gameObject);
       }
     }
   }
