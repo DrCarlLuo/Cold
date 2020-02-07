@@ -30,16 +30,19 @@ namespace Cold
         return;
       }
       Vector3 vec = hatred.transform.position-transform.position;
-      if(atkTimer<=0f){
-        if(vec.sqrMagnitude < 5f){
+      var pawnctls = claw.GetAttackPawnCtl(TeamMask.Hero);
+      if(pawnctls.Count>0){ // has targets in attack range
+        if(atkTimer<=0f){
           atkTimer = me.AttackCoolDown;
-          claw.Attack(TeamMask.Hero, me.AttackDamage);
+          claw.Attack(pawnctls, me.AttackDamage);
         }
       }
       else{
+        pawn.MoveBy(vec.normalized);
+      }
+      if(atkTimer>0f){
         atkTimer -= Time.deltaTime;
       }
-      pawn.MoveBy(vec.normalized);
       pawn.TargetAt(hatred.transform.position);
     }
   }
