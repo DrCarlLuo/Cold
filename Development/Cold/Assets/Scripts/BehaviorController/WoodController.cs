@@ -4,8 +4,8 @@ namespace Cold
   [RequireComponent(typeof(WoodState))]
   public class WoodController : MonoBehaviour{
     #region inspector
-    [SerializeField] AudioClip clipPick;
-    [SerializeField] AudioClip clipDrop;
+    [SerializeField] AudioClip clipPick = null;
+    [SerializeField] AudioClip clipDrop = null;
     #endregion
     public WoodState wood{get; private set;} = null;
     void Start()
