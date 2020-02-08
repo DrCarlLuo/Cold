@@ -194,6 +194,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70111816}
   m_CullTransparentMesh: 0
+--- !u!1 &109068743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2695013249988668077, guid: da2731e4888384b40b22dcd12f001508,
+    type: 3}
+  m_PrefabInstance: {fileID: 5212033480441136701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &109068750
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109068743}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &132446198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,6 +2419,8 @@ MonoBehaviour:
   initWoodCount: 20
   enemyGenRate: 0.2
   enemyGenLimit: 10
+  dayPeriod: 60
+  dayNightRate: 0.2
   timerText: {fileID: 132446201}
   fireHeap: {fileID: 1646792180}
   hero: {fileID: 0}

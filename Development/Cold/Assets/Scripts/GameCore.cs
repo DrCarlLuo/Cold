@@ -16,6 +16,8 @@ namespace Cold
         [SerializeField] int initWoodCount = 0;
         [SerializeField] float enemyGenRate = 1f;
         [SerializeField] int enemyGenLimit = 10;
+        [SerializeField] int dayPeriod = 60;
+        [Range(0f,1f)][SerializeField] float dayNightRate = 0.2f;
         [SerializeField] UnityEngine.UI.Text timerText = null;
         public GameObject fireHeap = null;
         #endregion
@@ -56,7 +58,9 @@ namespace Cold
                 exitMenu.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
-            if (enemyList.Count < enemyGenLimit)
+            
+            if (IsNight()
+            && enemyList.Count < enemyGenLimit)
             {
                 enemyGenTimer += Time.deltaTime * enemyGenRate;
                 while (enemyGenTimer > 1f)
@@ -70,6 +74,11 @@ namespace Cold
                     enemyList.Add(enemy);
                 }
             }
+        }
+        bool IsNight(){
+            float dayTime = Mathf.FloorToInt(CurrentGameTimeElapse)/dayPeriod;
+            dayTime = CurrentGameTimeElapse - CurrentGameTimeElapse*dayTime;
+            return dayTime/dayPeriod > dayNightRate;
         }
         Vector3 RandomPlaceCircle(float innerRadius, float outterRadius)
         {
