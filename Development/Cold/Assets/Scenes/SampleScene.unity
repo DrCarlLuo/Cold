@@ -883,7 +883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5426"
+  m_Text: Cancel
 --- !u!222 &842257104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u662F"
+  m_Text: Ok
 --- !u!222 &955817652
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1272,7 +1272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9000\u51FA\u6E38\u620F"
+  m_Text: Exit Game
 --- !u!222 &1443118925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1725,6 +1725,7 @@ MonoBehaviour:
   exitMenu: {fileID: 1969423993}
   initWoodCount: 20
   enemyGenRate: 1.2
+  enemyGenLimit: 10
   hero: {fileID: 0}
 --- !u!4 &2083115181
 Transform:

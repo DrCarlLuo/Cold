@@ -43,6 +43,7 @@ namespace Cold
       }
       if(renderHead){
         renderHead.sprite = dirVect.y>0? spHeadBack : spHeadFront;
+        renderHead.sortingOrder = dirVect.y>0? -1 : 1;
       }
       float angle = Vector3.Angle(Vector3.right, dirVect);
       if(target.y < transform.position.y){
