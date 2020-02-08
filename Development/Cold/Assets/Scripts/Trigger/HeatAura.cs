@@ -11,9 +11,9 @@ namespace Cold
       float rate = fireHeap.Health/Const.MaxHealth;
       rate += 0.1f*rate*Mathf.Sin(8f*Time.time);
       transform.localScale = Vector3.one * rate;
-      if(fireHeap.Health <= 0){
-        gameObject.SetActive(false);
-      }
+      // if(fireHeap.Health <= 0){
+      //   gameObject.SetActive(false);
+      // }
     }
     void OnTriggerStay2D(Collider2D other)
     {
