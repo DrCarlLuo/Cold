@@ -10,6 +10,7 @@ namespace Cold
         HeroState hero;
         ClawController claw;
         public Transform fireHeapPointerArrow;
+        public float pointerArrowMinShowRange;
         void Start()
         {
             pawn = transform.GetComponent<PawnController>();
@@ -39,6 +40,12 @@ namespace Cold
             Vector3 firePlaceVec = GameCore.I.fireHeap.transform.position - transform.position;
             firePlaceVec.z = 0f;
             fireHeapPointerArrow.rotation = Quaternion.Euler(0f, 0f, Vector3.SignedAngle(Vector3.up, firePlaceVec, Vector3.forward));
+
+            float fireHeapDist = Vector3.Distance(transform.position, GameCore.I.fireHeap.transform.position);
+            if (fireHeapDist > pointerArrowMinShowRange)
+                fireHeapPointerArrow.gameObject.SetActive(true);
+            else
+                fireHeapPointerArrow.gameObject.SetActive(false);
         }
     }
 }
