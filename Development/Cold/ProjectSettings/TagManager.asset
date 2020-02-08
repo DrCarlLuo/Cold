@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bg
+    uniqueID: 2315117965
+    locked: 0
   - name: Light
     uniqueID: 400649839
     locked: 0
