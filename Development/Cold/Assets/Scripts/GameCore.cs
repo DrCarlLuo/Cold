@@ -19,6 +19,9 @@ namespace Cold
         [SerializeField] int dayPeriod = 60;
         [Range(0f,1f)][SerializeField] float dayNightRate = 0.2f;
         [SerializeField] UnityEngine.UI.Text timerText = null;
+        [SerializeField] SpriteRenderer RenderGround;
+        [SerializeField] Color dayColor = new Color(1f, 1f, 1f, 1f);
+        [SerializeField] Color nightColor = new Color(0.3f, 0.3f, 0.3f, 1f);
         public GameObject fireHeap = null;
         #endregion
         public static GameCore I { get; private set; }
@@ -52,27 +55,38 @@ namespace Cold
         void Update()
         {
             CurrentGameTimeElapse = CurrentGameTimeElapse + Time.deltaTime;
-            timerText.text = string.Format("{0:t}", System.TimeSpan.FromSeconds(Mathf.FloorToInt(CurrentGameTimeElapse)));
+            timerText.text = string.Format("{0:t}{1}", 
+                System.TimeSpan.FromSeconds(Mathf.FloorToInt(CurrentGameTimeElapse)),
+                IsNight()?"(Night)":"(Day)"
+            );
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 exitMenu.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
             
-            if (IsNight()
-            && enemyList.Count < enemyGenLimit)
+            if (IsNight())
             {
-                enemyGenTimer += Time.deltaTime * enemyGenRate;
-                while (enemyGenTimer > 1f)
+                RenderGround.color = Color.Lerp(RenderGround.color, nightColor, Time.deltaTime*0.3f);
+                
+                if(enemyList.Count < enemyGenLimit)
                 {
-                    enemyGenTimer -= 1f;
-                    var pos = RandomPlaceCircle(1, 5f);
-                    var enemyObj = Instantiate(pfEnemy, pos, Quaternion.identity);
-                    enemyObj.SetParent(sceneRoot);
-                    var enemy = enemyObj.GetComponent<EnemyState>();
-                    enemy.EventDead += DestoryPawn;
-                    enemyList.Add(enemy);
+                    enemyGenTimer += Time.deltaTime * enemyGenRate;
+                    while (enemyGenTimer > 1f)
+                    {
+                        enemyGenTimer -= 1f;
+                        var pos = RandomPlaceCircle(1, 5f);
+                        var enemyObj = Instantiate(pfEnemy, pos, Quaternion.identity);
+                        enemyObj.SetParent(sceneRoot);
+                        var enemy = enemyObj.GetComponent<EnemyState>();
+                        enemy.EventDead += DestoryPawn;
+                        enemyList.Add(enemy);
+                    }
                 }
+            }
+            else
+            {
+                RenderGround.color = Color.Lerp(RenderGround.color, dayColor, Time.deltaTime*0.3f);
             }
         }
         bool IsNight(){
