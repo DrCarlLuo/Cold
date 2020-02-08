@@ -343,7 +343,7 @@ MonoBehaviour:
   IsDead: 0
   IsWarm: 0
   Team: 0
-  HeatDamage: 10
+  HeatDamage: 50
   SeachRadius: 10
 --- !u!114 &2614454046164083811
 MonoBehaviour:

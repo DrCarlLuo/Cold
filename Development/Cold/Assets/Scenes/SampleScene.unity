@@ -2400,7 +2400,7 @@ MonoBehaviour:
   exitMenu: {fileID: 1969423993}
   failMenu: {fileID: 973456744}
   initWoodCount: 20
-  enemyGenRate: 1.2
+  enemyGenRate: 0.2
   enemyGenLimit: 10
   timerText: {fileID: 132446201}
   hero: {fileID: 0}
