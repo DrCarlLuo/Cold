@@ -17,6 +17,7 @@ namespace Cold
         [SerializeField] float enemyGenRate = 1f;
         [SerializeField] int enemyGenLimit = 10;
         [SerializeField] UnityEngine.UI.Text timerText = null;
+        public GameObject fireHeap = null;
         #endregion
         public static GameCore I { get; private set; }
         [HideInInspector] public HeroState hero = null;
